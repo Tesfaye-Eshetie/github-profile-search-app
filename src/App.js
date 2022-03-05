@@ -25,7 +25,9 @@ function App() {
             console.log(err);
           }
     }
-      fetchData();
+      if(userName !== "") {
+        fetchData();
+      }     
     }, [ userName ]);
 
   const userID = user.name || user.login

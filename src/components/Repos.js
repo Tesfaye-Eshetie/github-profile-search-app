@@ -9,7 +9,7 @@ export default function Repos({ userName }) {
 
   
   useEffect(() => {
-      const fetchData = async () => {
+      const fetchRepos = async () => {
         try {
         const { data } = await axios.get(githubURL);
         setRepos(data);
@@ -17,7 +17,9 @@ export default function Repos({ userName }) {
             console.log(err);
           }
     }
-      fetchData();
+      if(userName !== "") {
+        fetchRepos();
+      }
     }, [ userName ]);
 
   return (
