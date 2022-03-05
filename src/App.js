@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './App.css';
+import GlobalStyles from './components/styles/Global';
+import { Container } from './components/styles/Container.styed';
+import { UserForm } from './components/styles/UserForm.styled';
 import Card from './components/Card';
 
 function App() {
@@ -29,12 +31,15 @@ function App() {
   const userID = user.name || user.login
   const userBio = user.bio ? user.bio : ''
   return (
-    <div className="App">
-      <form className="user-form"  >
-        <input type="text" placeholder="Search for a Github User ..." onChange={handleChange} />
-      </form>
-      <Card user={user} userBio={ userBio } userID={ userID } userName={ userName } />
-    </div>
+    <>
+      <GlobalStyles />
+      <Container>
+        <UserForm>
+          <input type="text" placeholder="Search for a Github User ..." onChange={handleChange} />
+        </UserForm>
+        <Card user={user} userBio={ userBio } userID={ userID } userName={ userName } />
+    </Container>
+    </>
   );
 }
 

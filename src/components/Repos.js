@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { ReposCard } from './styles/RepoCard.styled';
 
 export default function Repos({ userName }) {
     const [repos, setRepos] = useState([]);
@@ -24,7 +25,7 @@ export default function Repos({ userName }) {
         {
             repos.slice(0, 5)
             .map(repo => 
-                <a key={repo.id} href={ repo.html_url } className="repo">{ repo.name }</a>
+                <ReposCard key={repo.id} href={ repo.html_url } className="repo">{ repo.name }</ReposCard>
             )
         }
     </div>
